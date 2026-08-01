@@ -184,19 +184,19 @@ Confidence : 100.00%
 
 ### Home Page
 
-(Add Screenshot)
+![Home page](assets/home.png)
 
 ---
 
 ### Prediction Page
 
-(Add Screenshot)
+![Prediction](assets/prediction.png)
 
 ---
 
 ### Result
 
-(Add Screenshot)
+![Results](assets/prediction_01.png)
 
 ---
 
