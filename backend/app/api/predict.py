@@ -11,7 +11,7 @@ router = APIRouter(
 )
 
 
-@router.post("/")
+@router.post("")  # Yahan se slash hata diya hai taaki /predict par direct match ho
 async def predict_image(file: UploadFile = File(...)):
 
     start = time.perf_counter()
