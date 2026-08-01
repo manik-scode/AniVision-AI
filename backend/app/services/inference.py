@@ -13,7 +13,7 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # ----------------------------
 # Model Path
 # ----------------------------
-MODEL_PATH = Path(__file__).resolve().parents[3] / "models" / "best_model.pth"
+MODEL_PATH = Path(__file__).resolve().parents[2] / "models" / "best_model.pth"
 
 # ----------------------------
 # Load Model Once
