@@ -179,6 +179,9 @@ Confidence : 100.00%
 ```
 
 ---
+## LIVE DEMO:
+
+https://ani-vision-ai.vercel.app/
 
 ##  Screenshots
 
