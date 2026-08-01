@@ -1,69 +1,63 @@
-import { createContext, useContext, useMemo, useState, useCallback } from 'react'
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
-const PredictionContext = createContext(null)
+const PredictionContext = createContext();
 
-/**
- * PredictionProvider
- * Holds the in-memory prediction history so the Predict page can push new
- * results and the History page can read/search/delete them without prop
- * drilling. Swap the seed data for real persisted results once the FastAPI
- * backend is connected (see services/api.js).
- */
-export function PredictionProvider({ children }) {
-  const [history, setHistory] = useState(seedHistory)
+export const PredictionProvider = ({ children }) => {
+  // 1. App start hote hi localStorage se history load karein
+  const [history, setHistory] = useState(() => {
+    try {
+      const savedHistory = localStorage.getItem('ani_prediction_history');
+      return savedHistory ? JSON.parse(savedHistory) : [];
+    } catch (error) {
+      console.error("Failed to load history from localStorage", error);
+      return [];
+    }
+  });
 
-  const addPrediction = useCallback((entry) => {
-    setHistory((prev) => [{ id: crypto.randomUUID(), ...entry }, ...prev])
-  }, [])
+  // 2. Jab bhi history update ho, use localStorage mein save kar dein
+  useEffect(() => {
+    try {
+      localStorage.setItem('ani_prediction_history', JSON.stringify(history));
+    } catch (error) {
+      console.error("Failed to save history to localStorage", error);
+    }
+  }, [history]);
 
-  const deletePrediction = useCallback((id) => {
-    setHistory((prev) => prev.filter((item) => item.id !== id))
-  }, [])
+  // 3. Nayi prediction add karne ka function
+  const addPrediction = (newPrediction) => {
+    setHistory((prevHistory) => [newPrediction, ...prevHistory]);
+  };
 
-  const value = useMemo(
-    () => ({ history, addPrediction, deletePrediction }),
-    [history, addPrediction, deletePrediction],
-  )
+  // 4. Single prediction delete karne ka function
+  const deletePrediction = (id) => {
+    setHistory((prevHistory) => prevHistory.filter((item) => item.id !== id));
+  };
 
-  return <PredictionContext.Provider value={value}>{children}</PredictionContext.Provider>
-}
+  // 5. Saari history clear karne ka function
+  const clearHistory = () => {
+    setHistory([]);
+    localStorage.removeItem('ani_prediction_history');
+  };
 
-export function usePredictionContext() {
-  const ctx = useContext(PredictionContext)
-  if (!ctx) {
-    throw new Error('usePredictionContext must be used within a PredictionProvider')
+  return (
+    <PredictionContext.Provider
+      value={{
+        history,
+        addPrediction,
+        deletePrediction,
+        clearHistory,
+      }}
+    >
+      {children}
+    </PredictionContext.Provider>
+  );
+};
+
+// Custom hook for using prediction context easily
+export const usePredictionContext = () => {
+  const context = useContext(PredictionContext);
+  if (!context) {
+    throw new Error('usePredictionContext must be used within a PredictionProvider');
   }
-  return ctx
-}
-
-function seedHistory() {
-  return [
-    {
-      id: crypto.randomUUID(),
-      label: 'Dog',
-      confidence: 98.4,
-      imageUrl: null,
-      fileName: 'golden_retriever.jpg',
-      timestamp: Date.now() - 1000 * 60 * 42,
-      predictionTimeMs: 214,
-    },
-    {
-      id: crypto.randomUUID(),
-      label: 'Cat',
-      confidence: 96.1,
-      imageUrl: null,
-      fileName: 'tabby_cat.jpg',
-      timestamp: Date.now() - 1000 * 60 * 60 * 5,
-      predictionTimeMs: 187,
-    },
-    {
-      id: crypto.randomUUID(),
-      label: 'Cat',
-      confidence: 91.7,
-      imageUrl: null,
-      fileName: 'sphynx.jpg',
-      timestamp: Date.now() - 1000 * 60 * 60 * 26,
-      predictionTimeMs: 202,
-    },
-  ]
-}
+  return context;
+};
