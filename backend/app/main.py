@@ -10,7 +10,7 @@ app = FastAPI(
 
 origins = [
     "http://localhost:5173",
-    "https://ani-vision-ai.vercel.app"
+    "https://ani-vision-ai.vercel.app/"
 ]
 
 app.add_middleware(
