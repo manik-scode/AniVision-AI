@@ -1,8 +1,8 @@
-# 🐾 AniVision AI – Intelligent Cat vs Dog Image Classifier
+#  AniVision AI – Intelligent Cat vs Dog Image Classifier
 
 <div align="center">
 
-### 🚀 AI-Powered Image Classification using Deep Learning
+###  AI-Powered Image Classification using Deep Learning
 
 **Built with PyTorch • ResNet18 • Transfer Learning**
 
@@ -10,7 +10,7 @@
 
 ---
 
-## 📌 Overview
+##  Overview
 
 **AniVision AI** is a deep learning-based image classification system that accurately identifies whether an uploaded image contains a **Cat** or a **Dog**.
 
@@ -18,17 +18,17 @@ The project uses **Transfer Learning** with **ResNet18**, allowing high accuracy
 
 ---
 
-## ✨ Features
+##  Features
 
-* 🐱 Cat vs Dog Image Classification
-* 🧠 Transfer Learning using ResNet18
-* ⚡ Fast Prediction with Confidence Score
-* 📊 Model Evaluation (Accuracy, Precision, Recall, F1 Score)
-* 📈 Confusion Matrix & Classification Report
-* 💾 Automatic Best Model Saving
-* 🖼️ Custom Image Prediction
-* 🔄 Data Augmentation
-* 📂 Clean Project Structure
+*  Cat vs Dog Image Classification
+*  Transfer Learning using ResNet18
+*  Fast Prediction with Confidence Score
+*  Model Evaluation (Accuracy, Precision, Recall, F1 Score)
+*  Confusion Matrix & Classification Report
+*  Automatic Best Model Saving
+*  Custom Image Prediction
+*  Data Augmentation
+*  Clean Project Structure
 
 ---
 
@@ -58,7 +58,7 @@ The project uses **Transfer Learning** with **ResNet18**, allowing high accuracy
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```text
 AniVision-AI/
@@ -90,7 +90,7 @@ AniVision-AI/
 
 ---
 
-## 🧠 Model
+##  Model
 
 * Architecture: **ResNet18**
 * Technique: **Transfer Learning**
@@ -101,7 +101,7 @@ AniVision-AI/
 
 ---
 
-## 📊 Model Performance
+##  Model Performance
 
 | Metric        |      Score |
 | ------------- | ---------: |
@@ -119,7 +119,7 @@ AniVision-AI/
 
 ---
 
-## 🚀 Installation
+##  Installation
 
 Clone the repository
 
@@ -141,7 +141,7 @@ pip install -r requirements.txt
 
 ---
 
-## ▶ Training
+##  Training
 
 ```bash
 python src/train.py
@@ -149,7 +149,7 @@ python src/train.py
 
 ---
 
-## 📈 Evaluate
+##  Evaluate
 
 ```bash
 python src/evaluate.py
@@ -157,7 +157,7 @@ python src/evaluate.py
 
 ---
 
-## 🧪 Test
+##  Test
 
 ```bash
 python src/test.py
@@ -165,7 +165,7 @@ python src/test.py
 
 ---
 
-## 🔍 Predict
+##  Predict
 
 ```bash
 python src/predict.py
@@ -200,7 +200,7 @@ Confidence : 100.00%
 
 ---
 
-## 📚 Learning Outcomes
+##  Learning Outcomes
 
 Through this project, I learned:
 
