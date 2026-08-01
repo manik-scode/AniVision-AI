@@ -1,0 +1,77 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+.venv/
+env/
+
+# Model Files
+models/*.pth
+models/*.pt
+models/*.ckpt
+
+# Training History
+models/history.pth
+
+# Logs
+*.log
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Environment Variables
+.env
+
+# Python Build
+build/
+dist/
+*.egg-info/
+
+# Cache
+.cache/
+
+# Temporary
+*.tmp
+
+# TensorBoard
+runs/
+
+# MLFlow
+mlruns/
+
+# Dataset (Optional)
+# Uncomment if you don't want to upload datasets
+# data/train/
+# data/validation/
+# data/test/
+
+# Node (Frontend)
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# npm logs
+npm-debug.log*
+
+# Dataset
+data/
+
+
+venv/
+frontend/node_modules/
+models/*.pth
+__pycache__/
